@@ -14,7 +14,7 @@ monthly_challenges = {
     "september": "Make sure you're prepared for a natural disaster",
     "october": "Read at least one chapter of a book for pleasure every night",
     "november": "Write in a journal for at least 20 minutes evrery day",
-    "december": "Meditate for at least five minutes every day"
+    "december": None
 }
 
 # Create your views here.
