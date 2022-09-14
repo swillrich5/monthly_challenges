@@ -9,7 +9,7 @@ monthly_challenges = {
     "march": "Learn Django for at least 30 minutes every day.",
     "april": "Weight workout every other day for at least 30 minutes",
     "may": "Learn Docker and Kubernetes",
-    "june": "Drink at least 8 glasses of water a day",
+    "june": "Drink at least 8 glasses of water every day",
     "july": "Learn more JavaScript and React!",
     "august": "Meditate for at least five minutes every day.",
     "september": "Do Yoga at least one time a week",
@@ -17,6 +17,16 @@ monthly_challenges = {
     "november": "Get ready for Thanksgiving",
     "december": "Get ready for Christmas and New Year's"
 }
+
+
+def index(request):
+
+    months = list(monthly_challenges.keys())
+
+    return render(request, "challenges/index.html", {
+        "months": months,
+    })
+
 
 def monthly_challenge_by_number(request, month):
     months = list(monthly_challenges.keys())
@@ -26,10 +36,14 @@ def monthly_challenge_by_number(request, month):
     redirect_path = reverse("month-challenge", args=[redirect_month])
     return HttpResponseRedirect(redirect_path)
 
+
 def monthly_challenge(request, month):
     try:        
         challenge_text = monthly_challenges[month]
-        return HttpResponse(challenge_text)
+        return render(request, "challenges/challenge.html", {
+            "text": challenge_text,
+            "month": month,
+        })
     except:
-        return HttpResponseNotFound("This month is not supported!")
+        return HttpResponseNotFound("<h1>This month is not supported!</h1>")
     
