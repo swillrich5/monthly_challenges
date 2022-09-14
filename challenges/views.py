@@ -15,7 +15,7 @@ monthly_challenges = {
     "september": "Do Yoga at least one time a week",
     "october": "Get ready for Halloween",
     "november": "Get ready for Thanksgiving",
-    "december": "Get ready for Christmas and New Year's"
+    "december": None
 }
 
 
